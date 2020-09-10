@@ -1,0 +1,11 @@
+Notas para el programador:
+
+# 7/9/2020
+# los iconos de ventana solo .ico solo funcion en Sistema operativo Windows.
+# El pyinstaller en Linux no pone icono a la aplicacion
+# no se encontro fondo transparente para el label contador de tiempo en el intro
+# Para Pyinstaller en linux hay que poner el parametro --> pyinstaller main_V1.py --hidden-import='PIL._tkinter_finder'
+
+# para linux la compilacion de Pyinstaller es: pyinstaller --icon multifile.ico --windowed main_V1.py
+  luego debemos copiar las carpetas model y vista (dejar solo las subcarmetas imagenes/iconos)
+  
