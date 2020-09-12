@@ -1,3 +1,2 @@
-C:\Users\alexa\PycharmProjects\Multifile\V0.3
-C:\Users\alexa\PycharmProjects\Multifile
-C:\Users\alexa\Downloads
+C:\Users\alexa\Documents
+C:\temp
