@@ -233,6 +233,10 @@ Para comunicarse con el autor del programa para comentarios y sugerencias escrib
 Email: [alexander1973r@gmail.com](alexander1973r@gmail.com)
 
 Creador: **Alexander Rodríguez.**
+  
+## Curso recomendado para Aprender a programar Python
+  
+[Curso de Python desde cero](https://www.udemy.com/course/python-3x-desde-cero/?referralCode=CB0B49C9DBF905F51A9B)
 
 ## Canales para suscribirse:
 
