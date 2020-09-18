@@ -236,7 +236,7 @@ Creador: **Alexander Rodríguez.**
   
 ## Curso recomendado para Aprender a programar Python
   
-[Curso de Python desde cero](https://www.udemy.com/course/python-3x-desde-cero/?referralCode=CB0B49C9DBF905F51A9B)
+[Curso de Python desde cero en UDEMY por Alexander Rodriguez](https://www.udemy.com/course/python-3x-desde-cero/?referralCode=CB0B49C9DBF905F51A9B)
 
 ## Canales para suscribirse:
 
