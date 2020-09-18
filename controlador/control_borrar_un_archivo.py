@@ -8,8 +8,6 @@ from vistas import vista_deleteONEV1 as deleteONE  # importando la vista renombr
 # ----------------------------------------------
 # CONTROLADOR
 from controlador import control_principal as ppal  # funcion leer rutas
-
-
 # -----------------------------------------------
 
 # CLASE controlador para Renombrar un solo archivo

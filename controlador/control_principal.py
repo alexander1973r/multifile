@@ -62,18 +62,17 @@ def cargar_tabla(lista_directorio, gui_ppal):
 
 # FUNCION: leer campo donde esta la ruta actual en el campo del combobox ventana principal
 def leer_ruta(gui_ppal):
-    # noinspection PyBroadException
-    # try:
-    ruta = gui_ppal.combobox_widget.get()
-    os.chdir(ruta)  # nueva ruta
-    curdir = os.getcwd()  # ruta actual
-    print("Ruta actual:", curdir)
-    gui_ppal.label_notice.configure(text="")  # info de estatus
-    return os.listdir(curdir)
-    # except:
-    #     print('Error No existe ruta.')
-    #     gui_ppal.label_notice.configure(text="Ruta no valida")  # info de estatus
-    #     return None
+    try:
+        ruta = gui_ppal.combobox_widget.get()
+        os.chdir(ruta)  # nueva ruta
+        curdir = os.getcwd()  # ruta actual
+        print("Ruta actual:", curdir)
+        gui_ppal.label_notice.configure(text="")  # info de estatus
+        return os.listdir(curdir)
+    except Exception as e:
+        print(e)
+        print('Error No existe ruta.')
+        return None
 
 
 # -*******************************************************************************
@@ -137,7 +136,12 @@ class ControladorPPAL:
         else:
             self.gui_ppal.combobox_widget['values'] = self.lista_atajos
             self.gui_ppal.combobox_widget.set(self.lista_atajos[0])
-            os.chdir(self.lista_atajos[0])  # se posicionarse en la nueva ruta
+            try:
+                os.chdir(self.lista_atajos[0])  # se posicionarse en la nueva ruta
+            except Exception as e:
+                print(e)
+                print('Error No existe ruta [SE LEERA DIRECTORIO RAIZ DEL PROGRAMA..].')
+                self.gui_ppal.combobox_widget.set(self.ruta_app)  # pone la ruta del programa
 
         curdir = os.getcwd()  # ruta actual
         return os.listdir(curdir)
@@ -149,13 +153,12 @@ class ControladorPPAL:
         print('data lista:', self.data)
 
         # colocar el nombre del archivo  campo borrar
-        if hasattr(Borrar.DeleteOneFile.one_window_del,'existe'):
+        if hasattr(Borrar.DeleteOneFile.one_window_del, 'existe'):
             Borrar.DeleteOneFile.one_window_del.nombre_archivo.set(self.data['text'])  # actualizar campor Del
 
         #  colocar el nombre del archivo a campo renombrar
-        if hasattr(RenUno.RenameOneFile.one_window_file,'existe'):
+        if hasattr(RenUno.RenameOneFile.one_window_file, 'existe'):
             RenUno.RenameOneFile.one_window_file.nombre_archivo.set(self.data['text'])  # actualizar campo Rename
-
 
     # EVENTO APARECER VENTANA DE CAMPO para borrar un archivo
     def btn_borrar_un_archivo(self, _event):

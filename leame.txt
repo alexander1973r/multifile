@@ -4,8 +4,20 @@ Notas para el programador:
 # los iconos de ventana solo .ico solo funcion en Sistema operativo Windows.
 # El pyinstaller en Linux no pone icono a la aplicacion
 # no se encontro fondo transparente para el label contador de tiempo en el intro
-# Para Pyinstaller en linux hay que poner el parametro --> pyinstaller main_V1.py --hidden-import='PIL._tkinter_finder'
 
-# para linux la compilacion de Pyinstaller es: pyinstaller --icon multifile.ico --windowed main_V1.py
-  luego debemos copiar las carpetas model y vista (dejar solo las subcarmetas imagenes/iconos)
+
+# Para Pyinstaller en linux hay que poner el parametro --> pyinstaller main_V1.py --windowed --hidden-import='PIL._tkinter_finder'
+# Para windows la compilacion de Pyinstaller es: pyinstaller --icon multifile.ico --windowed main_V1.py
+  luego debemos copiar las carpetas model y vista (dejar solo las subcarpetas imagenes/iconos)
+  Crear la carpeta modelo en la ruta de ejecucion.
+  en windows parece existir una mejor integracion con el paquete PIL en pyinstaller ya que lo incluye sin parametros
+
+
+# repositorio de GitHub: https://github.com/alexander1973r/multifile
+
+Python3.6
+Pillow 7
+Tkinter
+
+
   

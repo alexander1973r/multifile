@@ -27,28 +27,11 @@ class RenameOneFile:
         else:
             cls.window_one = Toplevel(root)  # asignar que es ventana hija
             cls.one_window_file = renameONE.Ventana(cls.window_one)  # instanciar Window_file
-            cls.one_window_file.nombre_archivo.set(cls.data['text'])  # se pasa la ruta app
             # para cargar los iconos  relacionados
-            cls.one_window_file.nombre_archivo_viejo = cls.data['text']
             cls.controles_para_one_rename(gui_ppal)  # eventos de la ventana renombrar un archivo
-
-        # try:
-        #     # pregunta si existe lo pone en foco
-        #     if cls.window_one.state() == "normal":
-        #         cls.window_one.focus()
-        #         cls.one_window_file.nombre_archivo.set(cls.data['text'])
-        #         cls.one_window_file.nombre_archivo_viejo = cls.data['text']
-        # except Exception as e:
-        #     print(e)
-        #     # Se debe crear la raiz de la nueva ventana  afuera para que no vuelva a crear instancias
-        #     # ponemos Toplevel() para indicar que existe una ventana padre y se debe enfocar como hija
-        #     cls.window_one = Toplevel(root)  # asignar que es ventana hija
-        #     cls.one_window_file = renameONE.Ventana(cls.window_one)  # instanciar Window_file
-        #     cls.one_window_file.nombre_archivo.set(cls.data['text'])  # se pasa la ruta app
-        #     # para cargar los iconos  relacionados
-        #     cls.one_window_file.nombre_archivo_viejo = cls.data['text']
-        #
-        #     cls.controles_para_one_rename(gui_ppal)  # eventos de la ventana renombrar un archivo
+            # obtener nombre viejo y nombre nuevo
+            cls.one_window_file.nombre_archivo_viejo = cls.data['text']
+            cls.one_window_file.nombre_archivo.set(cls.data['text'])  # se pasa la ruta app
 
     @classmethod
     def controles_para_one_rename(cls, gui_ppal):
@@ -61,10 +44,12 @@ class RenameOneFile:
         def accion_si(_event, gui):
             print('[cambiar Nombre]')
             ruta = gui.combobox_widget.get()
-            old_file = os.path.join(ruta, cls.one_window_file.nombre_archivo_viejo)
+            # rutas de archivos
+            data = gui.tree.item(gui.tree.selection())
+            old_file = os.path.join(ruta, data['text'])
             new_file = os.path.join(ruta, cls.one_window_file.nombre_archivo.get())
             data = gui.tree.item(gui.tree.selection())  # toma seleccion de fila de tabla
-            #  print(old_file,'<-->', new_file) # testing
+            #  ACCION DE RENOMBRE POR OS
             os.rename(old_file, new_file)
             # actualizar la lista y remarcar nombre cambiado en lista
             i = data["tags"][0]  # toma el valor tag para resaltar archivo cambiado
