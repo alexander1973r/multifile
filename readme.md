@@ -8,7 +8,8 @@ Ejecutable para **Windows x64** y **Linux Lumbutu x64**
 
 # Para los Programadores
   
-Para Correr el código fuente se requiere:
+Para Correr el código fuente se requiere:  
+  
 **Python 3.6 con Tkinter**  
 **Pillow  ver 7.2.0**  
 
